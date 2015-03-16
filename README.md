@@ -67,3 +67,14 @@ Copy `my_isprime.so` compiled in Step2 to the path you've remembered.
 ``` bash
 cp my_isprime.so /data/5.6.22/lib/mysql/plugin/
 ```
+
+- Load into MySQL
+
+``` mysql
+mysql> {msandbox} ((none)) > DROP FUNCTION IF EXISTS isprime;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE FUNCTION isprime RETURNS INT SONAME 'my_isprime.so';
+Query OK, 0 rows affected (0.00 sec)
+```
+
